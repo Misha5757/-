@@ -1,0 +1,37 @@
+﻿<Page x:Class="avtiruz.Views.Pages.Viborka_ID.viborka2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:avtiruz.Views.Pages.Viborka_ID"
+      mc:Ignorable="d" Loaded="Page_Loaded"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="viborka2">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
+
+        </Grid>
+        <!--Это 2 пространство-->
+        <Grid Grid.Row="1">
+            <DataGrid  Margin="10" x:Name="dataView" ColumnWidth="*" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+
+
+
+
+                    <DataGridTextColumn Header="Название товара" Binding="{Binding Tovars.Nazvanie}" Width="*" />
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Cena}" Width="190" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+    </Grid>
+</Page>

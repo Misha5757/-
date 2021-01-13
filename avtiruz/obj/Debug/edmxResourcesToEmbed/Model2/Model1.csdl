@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Optovay_BZ2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Postavshic">
+    <Key>
+      <PropertyRef Name="Nomer_cheta" />
+    </Key>
+    <Property Name="Nomer_cheta" Type="Int32" Nullable="false" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Srok_Postavki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Kol_tovara" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cena" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tovar" Type="Int32" Nullable="false" />
+    <Property Name="Postavshik" Type="Int32" />
+    <NavigationProperty Name="Postavshiki" Relationship="Self.FK_Поставки_Поставщик_Поставщики_Номер" FromRole="Postavshic" ToRole="Postavshiki" />
+    <NavigationProperty Name="Tovars" Relationship="Self.FK_Поставки_Товар_Товары_Код_товара" FromRole="Postavshic" ToRole="Tovars" />
+  </EntityType>
+  <EntityType Name="Postavshiki">
+    <Key>
+      <PropertyRef Name="Nomer" />
+    </Key>
+    <Property Name="Nomer" Type="Int32" Nullable="false" />
+    <Property Name="FIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Postavshic" Relationship="Self.FK_Поставки_Поставщик_Поставщики_Номер" FromRole="Postavshiki" ToRole="Postavshic" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="SignIn" Relationship="Self.FK_SignIn_IDRole_Role_RoleID" FromRole="Role" ToRole="SignIn" />
+  </EntityType>
+  <EntityType Name="SignIn">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDRole" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_SignIn_IDRole_Role_RoleID" FromRole="SignIn" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Tovars">
+    <Key>
+      <PropertyRef Name="Kod_Tovar" />
+    </Key>
+    <Property Name="Kod_Tovar" Type="Int32" Nullable="false" />
+    <Property Name="Nazvanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Edinica_Izmerenia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Kl_na_cklade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opisanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Postavshic" Relationship="Self.FK_Поставки_Товар_Товары_Код_товара" FromRole="Tovars" ToRole="Postavshic" />
+  </EntityType>
+  <Association Name="FK_Поставки_Поставщик_Поставщики_Номер">
+    <End Role="Postavshiki" Type="Self.Postavshiki" Multiplicity="0..1" />
+    <End Role="Postavshic" Type="Self.Postavshic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postavshiki">
+        <PropertyRef Name="Nomer" />
+      </Principal>
+      <Dependent Role="Postavshic">
+        <PropertyRef Name="Postavshik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Поставки_Товар_Товары_Код_товара">
+    <End Role="Tovars" Type="Self.Tovars" Multiplicity="1" />
+    <End Role="Postavshic" Type="Self.Postavshic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tovars">
+        <PropertyRef Name="Kod_Tovar" />
+      </Principal>
+      <Dependent Role="Postavshic">
+        <PropertyRef Name="Tovar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SignIn_IDRole_Role_RoleID">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="SignIn" Type="Self.SignIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="SignIn">
+        <PropertyRef Name="IDRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Optovay_BZ2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Postavshic" EntityType="Self.Postavshic" />
+    <EntitySet Name="Postavshiki" EntityType="Self.Postavshiki" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="SignIn" EntityType="Self.SignIn" />
+    <EntitySet Name="Tovars" EntityType="Self.Tovars" />
+    <AssociationSet Name="FK_Поставки_Поставщик_Поставщики_Номер" Association="Self.FK_Поставки_Поставщик_Поставщики_Номер">
+      <End Role="Postavshiki" EntitySet="Postavshiki" />
+      <End Role="Postavshic" EntitySet="Postavshic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Поставки_Товар_Товары_Код_товара" Association="Self.FK_Поставки_Товар_Товары_Код_товара">
+      <End Role="Tovars" EntitySet="Tovars" />
+      <End Role="Postavshic" EntitySet="Postavshic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SignIn_IDRole_Role_RoleID" Association="Self.FK_SignIn_IDRole_Role_RoleID">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="SignIn" EntitySet="SignIn" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

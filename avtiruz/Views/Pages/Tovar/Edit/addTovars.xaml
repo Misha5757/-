@@ -1,0 +1,58 @@
+﻿<Page x:Class="avtiruz.Views.Pages.Tovar.Edit.addTovars"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:avtiruz.Views.Pages.Tovar.Edit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="addTovars">
+
+    <Grid>
+        <Grid>
+            <StackPanel HorizontalAlignment="Center"
+VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Код товара: "
+Style="{StaticResource StyleForAddTextBlock}"/>
+                    <TextBox x:Name="txb_kod" Style="{StaticResource StyleForAddTextBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Название: "
+Style="{StaticResource StyleForAddTextBlock}"/>
+                    <TextBox x:Name="txb_nazv" Style="{StaticResource StyleForAddTextBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Единица измерения: "
+Style="{StaticResource StyleForAddTextBlock}"/>
+                    <TextBox x:Name="txb_edin" Style="{StaticResource StyleForAddTextBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Количество на складе: "
+Style="{StaticResource StyleForAddTextBlock}"/>
+                    <TextBox x:Name="txb_kol" Style="{StaticResource StyleForAddTextBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Описание: "
+Style="{StaticResource StyleForAddTextBlock}"/>
+                    <TextBox x:Name="txb_opis" Style="{StaticResource StyleForAddTextBox}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+HorizontalAlignment="Center"
+VerticalAlignment="Center"
+Margin="0,10,0,0">
+                    <Button x:Name="btnCancel"
+Width='145'
+Content="Отмена"
+Click="btnCancel_Click"/>
+                    <Button x:Name="btnSave"
+Content="Сохранить"
+Width="145"
+Margin="5,0,0,0"
+Click="btnSave_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

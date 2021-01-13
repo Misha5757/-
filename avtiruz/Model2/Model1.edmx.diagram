@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fa64fa615c87400b8172904b48916cb7" Name="Diagram1">
+        <EntityTypeShape EntityType="Optovay_BZ2Model.Postavshic" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Optovay_BZ2Model.Postavshiki" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Optovay_BZ2Model.Role" Width="1.5" PointX="2.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Optovay_BZ2Model.SignIn" Width="1.5" PointX="5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Optovay_BZ2Model.Tovars" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="Optovay_BZ2Model.FK_Поставки_Поставщик_Поставщики_Номер" ManuallyRouted="false" />
+        <AssociationConnector Association="Optovay_BZ2Model.FK_Поставки_Товар_Товары_Код_товара" ManuallyRouted="false" />
+        <AssociationConnector Association="Optovay_BZ2Model.FK_SignIn_IDRole_Role_RoleID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

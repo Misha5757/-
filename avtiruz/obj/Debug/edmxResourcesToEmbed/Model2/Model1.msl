@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Optovay_BZ2ModelContainer" CdmEntityContainer="Optovay_BZ2Entities">
+    <EntitySetMapping Name="Postavshic">
+      <EntityTypeMapping TypeName="Optovay_BZ2Model.Postavshic">
+        <MappingFragment StoreEntitySet="Postavshic">
+          <ScalarProperty Name="Nomer_cheta" ColumnName="Nomer_cheta" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Srok_Postavki" ColumnName="Srok_Postavki" />
+          <ScalarProperty Name="Kol_tovara" ColumnName="Kol_tovara" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="Tovar" ColumnName="Tovar" />
+          <ScalarProperty Name="Postavshik" ColumnName="Postavshik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Postavshiki">
+      <EntityTypeMapping TypeName="Optovay_BZ2Model.Postavshiki">
+        <MappingFragment StoreEntitySet="Postavshiki">
+          <ScalarProperty Name="Nomer" ColumnName="Nomer" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="Optovay_BZ2Model.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SignIn">
+      <EntityTypeMapping TypeName="Optovay_BZ2Model.SignIn">
+        <MappingFragment StoreEntitySet="SignIn">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tovars">
+      <EntityTypeMapping TypeName="Optovay_BZ2Model.Tovars">
+        <MappingFragment StoreEntitySet="Tovars">
+          <ScalarProperty Name="Kod_Tovar" ColumnName="Kod_Tovar" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+          <ScalarProperty Name="Edinica_Izmerenia" ColumnName="Edinica_Izmerenia" />
+          <ScalarProperty Name="Kl_na_cklade" ColumnName="Kl_na_cklade" />
+          <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
